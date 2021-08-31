@@ -3,19 +3,23 @@ import "bootstrap";
 import "./style.css";
 
 window.onload = function() {
-  //Arrays with their values
-  let pronoun = ["the", "our"];
-  let adj = ["great", "big", "amazing", "cool"];
-  let noun = ["jogger", "racoon", "princess", "king", "friend"];
-  let extension = [".com", ".net", ".us", ".io", "lastOf.us"];
+  let pronouns = ["the", "our"];
+  let adjectives = ["great", "big"];
+  let nouns = ["jogger", "racoon"];
+  let extensions = [".com", ".net", ".us", ".io", "lastOf.us"];
 
-  //Random numbers for each array and their values
-  let random1 = Math.floor(Math.random() * pronoun.length);
-  let random2 = Math.floor(Math.random() * adj.length);
-  let random3 = Math.floor(Math.random() * noun.length);
-  let random4 = Math.floor(Math.random() * extension.length);
-
-  //Concatenation of the random values into an excuse
-  document.querySelector("#excuse").innerHTML =
-    pronoun[random1] + adj[random2] + noun[random3] + extension[random4];
+  for (let pronoun of pronouns) {
+    for (let adjective of adjectives) {
+      for (let noun of nouns) {
+        for (let extension of extensions) {
+          document.querySelector(
+            "#domain"
+          ).innerHTML += `<li class="text-center">${pronoun +
+            adjective +
+            noun +
+            extension}</li>`;
+        }
+      }
+    }
+  }
 };
